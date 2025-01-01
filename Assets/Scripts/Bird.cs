@@ -27,4 +27,7 @@ public class Bird : MonoBehaviour
         }
 
     }
+
+    //public void 
+
 }
