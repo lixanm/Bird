@@ -10,6 +10,8 @@ public class Bird : MonoBehaviour
 
     public GameManager gameManager;
 
+    public float chengdu = 4;
+
     void Start()
     {
         UPSpeed = 5;
@@ -27,8 +29,12 @@ public class Bird : MonoBehaviour
         if (!gameManager.isGameState) return;
         if(Input.GetMouseButtonDown(0))
         {
-            myrigidbody2D.velocity = new Vector2(0, UPSpeed);
+            myrigidbody2D.velocity = new Vector2(0, UPSpeed);//线性加速度
         }
+
+        transform.rotation = Quaternion.Euler(0, 0, myrigidbody2D.velocity.y * chengdu);
+
+        print(myrigidbody2D.velocity);
 
     }
 
