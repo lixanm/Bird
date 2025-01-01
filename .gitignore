@@ -17,6 +17,7 @@ UserSettings/
 [Bb]uild/
 [Ll]ogs/
 UserSettings/
+*.meta
 
 # Visual Studio
 .vs/
