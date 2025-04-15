@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bird : MonoBehaviour
 {
-    public int UPSpeed;
+    public int UPSpeed = 5;
     private Rigidbody2D myrigidbody2D;
     private Animator animator;
 
@@ -12,9 +12,9 @@ public class Bird : MonoBehaviour
 
     public float chengdu = 4;
 
+
     void Start()
     {
-        UPSpeed = 5;
         myrigidbody2D = GetComponent<Rigidbody2D>();
         animator = transform.Find("birdShow").GetComponent<Animator>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -29,13 +29,18 @@ public class Bird : MonoBehaviour
         if (!gameManager.isGameState) return;
         if(Input.GetMouseButtonDown(0))
         {
-            myrigidbody2D.velocity = new Vector2(0, UPSpeed);//线性加速度
+            Fly();
         }
 
         transform.rotation = Quaternion.Euler(0, 0, myrigidbody2D.velocity.y * chengdu);
 
-        print(myrigidbody2D.velocity);
+        
 
+    }
+
+    public void Fly()
+    {
+        myrigidbody2D.velocity = new Vector2(0, UPSpeed);//线性加速度
     }
 
     public void ChangeState(bool isFly)
